@@ -2,6 +2,7 @@
 import Vue from 'vue'
 
 import './lib/mui/css/mui.min.css'
+import './lib/mui/css/icons-extra.css'
 
 
 import { Header } from 'mint-ui';
