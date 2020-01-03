@@ -13,6 +13,7 @@ var router = new VueRouter({
     { path:'/shopcar',component:ShopcarContainer},
     { path:'/search',component:SearchContainer},
     { path:'/Member',component:MemberContainer},
+    { path:'/',redirect:'/home'},
   ],
   linkActiveClass:'mui-active'  //覆盖默认的路由高亮类 router-link-active
 })
