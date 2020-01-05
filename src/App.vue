@@ -5,7 +5,10 @@
     <mt-header fixed title="Vue项目"></mt-header>
 
  <!--中间栏><-->
+ <transition>
 	<router-view></router-view>
+ </transition>
+
 
 <!--tabbar><-->
     <nav class="mui-bar mui-bar-tab">
@@ -37,6 +40,18 @@
 <style lang="scss" scoped>
 .app-container{
   padding-top: 40px;
+  overflow-x: hidden;
+}
+
+.v-enter,
+.v-leave-active{
+	opacity:0;
+	transform:translateX(100%);
+}
+
+.v-leave,
+.v-enter-active{
+	transition:all 0.5s ease;
 }
 
 
