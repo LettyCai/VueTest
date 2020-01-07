@@ -12,6 +12,12 @@ Vue.use(VueRouter)
 //1.3导入路由模块
 import router from './router.js'
 
+import moment from 'moment'
+//定义全局过滤器
+Vue.filter('dateFormat',function(datestr,pattern="YYYY-MM-DD HH:mm:ss"){
+    return moment(datestr).format(pattern)
+})
+
 
 import { Header,Swipe, SwipeItem } from 'mint-ui'
 

@@ -1,17 +1,17 @@
 <template>
     <div>
        <ul class="mui-table-view">
-				<li class="mui-table-view-cell mui-media">
-					<a href="javascript:;" class="">
+				<li class="mui-table-view-cell mui-media" v-for="item in newslist" :key="item.id">
+					<router-link :to="'/home/newsinfo'+item.id" class="">
 						<img class="mui-media-object mui-pull-left" src="../../images/abc.jpg">
 						<div class="mui-media-body">
-							<h1>幸福</h1>
+							<h1>{{ item.title }}</h1>
 							<p class="mui-ellipsis">
-                                <span>发表时间：20191212 12:12:12</span>
-                                 <span>点击：0次</span>
+                                <span>{{ item.time | dateFormat() }}</span>
+                                 <span>{{ item.click }}</span>
                             </p>
 						</div>
-					</a>
+					</router-link>
 				</li>
 				
 
@@ -20,6 +20,33 @@
 </template>
 
 <script>
+import { Toast } from 'mint-ui'
+
+export default {
+    data(){
+        return {
+            newslist : []
+        };
+    },
+
+    created() {
+        this.newslist = [{"id":1,"title":"abc","summary":"aaaaaa","click":1,"time":"20190902 010203"},
+                            {"id":2,"title":"ccc","summary":"cccc","click":2,"time":"20190902 010203"}
+                            ]
+    },
+
+    methods:{
+        getNewsList(){
+            this.$http.get('').then(result => {
+                this.newslist = result.body.message;
+
+                console.log(this.data);
+            })
+        }
+      
+    }
+
+}
 
 </script>
 
