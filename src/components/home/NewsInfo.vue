@@ -9,18 +9,27 @@
         <hr>
 
         <div class="content" v-html="newslist.summary"></div>
+
+        <comment-box></comment-box>
     </div>
 </template>
 
 <script>
+//导入评论子组件
+import comment from '../subconponets/comment.vue'
+
 export default{
     data(){
         return {
             id : this.$route.params.id,  //将URL中传递过来的id值，挂载到data里
-            newslist : {"id":1,"title":"abc","summary":"aaaaaa","click":1,"time":"20190902 010203"}
+            newslist : {"id":1,"title":"用Excel/WPS做企业管理系统，ERP/OA/CRM/SCM/PDM/报表/文档系统等！ ","summary":"在模板上定义表间公式，使得不同模板的数据自动互相引用、彼此同步，形成一个有机整体.合同、CAD图纸、档案...，各类文档集中统一存储、访问权限、版本控制、建立文档与数据的关联","click":1,"time":"20190902 010203"}
                             
         }
+    },
+    components:{//注册子组件
+    'comment-box':comment
     }
+    
 }
 </script>
 
